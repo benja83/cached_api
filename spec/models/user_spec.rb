@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it "must have an email to be valid" do
-    user = User.new email: 'test@example.com'
+    user = build(:user)
     expect(user).to be_valid
   end
 
@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
   end
 
   it "has to be unique email" do
-    User.create email: 'test@example.com'
-    user = User.new email: 'test@example.com'
+    create(:user)
+    user = build(:user)
     expect(user).not_to be_valid
   end
 end
