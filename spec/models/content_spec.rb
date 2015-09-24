@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Content, type: :model do
   it "must have an plot and a tilte to be valid" do
-    content = Content.new plot: 'This a plot', title: "This is the title"
+    content = build :content
     expect(content).to be_valid
   end
 

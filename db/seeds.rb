@@ -6,4 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email: 'test@example.com')
+User.create email: 'test@example.com'
+
+(1..5).each { |e|  Content.create plot: "Rambo#{e} is a nice film", title: "Rambo#{e}"}
