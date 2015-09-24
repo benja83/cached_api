@@ -6,7 +6,6 @@ FactoryGirl.define do
   factory :content do
     plot
     title
-    type 'Movie'
   end
 
   factory :movie, parent: :content, class: 'Movie' do
