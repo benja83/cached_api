@@ -6,8 +6,7 @@ RSpec.describe Api::V1::ContentsController, type: :controller do
     before do
       @contents = []
       5.times do
-        content = create(:content)
-        @contents << content
+        @contents << create(:movie)
       end
       get :index
     end
