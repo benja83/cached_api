@@ -5,10 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+YEAR_OPTION = [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015]
+
 
 User.create email: 'test@example.com'
 
-(1..5).each { |e|  Content.create plot: "Rambo#{e} is a nice film", title: "Rambo#{e}"}
-(1..5).each { |e|  Movie.create plot: "Rocki#{e} is a nice film", title: "Rocki#{e}"}
-(1..5).each { |e|  Season.create plot: "Walking dead season #{e} is a nice serie", title: "Walking dead season#{e}"}
-
+(1..5).each { |e|  Content.create plot: "Rambo#{e} is a nice film", title: "Rambo#{e}", year: YEAR_OPTION.sample }
+(1..5).each { |e|  Movie.create plot: "Rocki#{e} is a nice film", title: "Rocki#{e}", year: YEAR_OPTION.sample }
+(1..5).each { |e|  Season.create plot: "Walking dead season #{e} is a nice serie", title: "Walking dead season#{e}", year: YEAR_OPTION.sample }
