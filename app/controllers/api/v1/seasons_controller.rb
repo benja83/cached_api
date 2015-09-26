@@ -1,10 +1,8 @@
 class Api::V1::SeasonsController < ApplicationController
 
   def index
-
-    contents = Season.order(:created_at)
+    contents = Season.order(:year)
     render :json => contents
-
   end
 
 end

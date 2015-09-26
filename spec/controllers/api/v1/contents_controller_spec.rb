@@ -28,11 +28,6 @@ RSpec.describe Api::V1::ContentsController, type: :controller do
         expect(format(response.body).first).to eql(format(@contents.to_json).last)
       end
 
-      private
-
-        def format(data)
-          JSON.parse(data).to_a
-        end
     end
   end
 end

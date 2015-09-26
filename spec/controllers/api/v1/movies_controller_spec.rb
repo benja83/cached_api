@@ -8,6 +8,7 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
         create_list(:content,5)
         create_list(:season,5)
         @contents = create_list(:movie,5)
+        @contents << create(:movie, year: 1900)
 
         get :index
       end
@@ -17,13 +18,11 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
       end
 
       it 'returns the data in the body' do
-        body = MultiJson.load(response.body)
-        expect(response.body).to eql(@contents.to_json)
+        expect(format(response.body)).to match_array(format(@contents.to_json))
       end
 
       it "return the data in the order they are been created" do
-        body = MultiJson.load(response.body)
-        expect(response.body[0]).to eql(@contents.to_json[0])
+        expect(format(response.body).first).to eql(format(@contents.to_json).last)
       end
     end
   end
