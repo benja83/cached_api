@@ -1,7 +1,7 @@
 class Api::V1::ContentsController < ApplicationController
   def index
 
-    contents = Content.order(:created_at)
+    contents = Content.order(:year)
     render :json => contents
 
   end
