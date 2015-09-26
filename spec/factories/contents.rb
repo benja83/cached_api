@@ -13,4 +13,11 @@ FactoryGirl.define do
     title
     type 'Movie'
   end
+
+  factory :season, parent: :content, class: 'Season' do
+    plot
+    title
+    type 'Season'
+  end
+
 end
