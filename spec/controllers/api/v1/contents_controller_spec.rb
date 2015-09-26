@@ -9,6 +9,7 @@ RSpec.describe Api::V1::ContentsController, type: :controller do
         5.times do
           @contents << create(:content)
           @contents << create(:movie)
+          @contents << create(:season)
         end
         get :index
       end

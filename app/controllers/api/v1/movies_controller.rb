@@ -6,4 +6,5 @@ class Api::V1::MoviesController < ApplicationController
     render :json => contents
 
   end
+
 end

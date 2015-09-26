@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::MoviesController, type: :controller do
+RSpec.describe Api::V1::SeasonsController, type: :controller do
   context 'index' do
     describe "using movie endpoint" do
 
@@ -9,8 +9,8 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
         @contents = []
         5.times do
           create(:content)
-          create(:season)
-          @contents << create(:movie)
+          create(:movie)
+          @contents << create(:season)
         end
         get :index
 
