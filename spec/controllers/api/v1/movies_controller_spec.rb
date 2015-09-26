@@ -5,15 +5,11 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
     describe "using movie endpoint" do
 
       before do
+        create_list(:content,5)
+        create_list(:season,5)
+        @contents = create_list(:movie,5)
 
-        @contents = []
-        5.times do
-          create(:content)
-          create(:season)
-          @contents << create(:movie)
-        end
         get :index
-
       end
 
       it 'returns the correct status' do
