@@ -1,16 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::ContentsController, type: :controller do
-
+RSpec.describe Api::V1::MoviesController, type: :controller do
   context 'index' do
-    describe "using contents endpoint" do
+    describe "using movie endpoint" do
+
       before do
+
         @contents = []
         5.times do
-          @contents << create(:content)
+          create(:content)
           @contents << create(:movie)
         end
         get :index
+
+
       end
 
       it 'returns the correct status' do
