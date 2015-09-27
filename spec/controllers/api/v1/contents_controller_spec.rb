@@ -5,14 +5,7 @@ RSpec.describe Api::V1::ContentsController, type: :controller do
   context 'index' do
     describe "using contents endpoint" do
       before do
-        @contents = [ ]
-        5.times do
-          @contents << create(:content)
-          @contents << create(:movie)
-          @contents << create(:season)
-        end
-
-        @contents << create(:content, year: 1900)
+        @contents = create_list(:content, 5) + create_list(:movie, 5) + create_list(:season, 5) << create(:content, year: 1900)
         get :index
       end
 
