@@ -6,7 +6,7 @@ RSpec.describe Content, type: :model do
     expect(content).to be_valid
   end
 
-  it "is unvalid if is missing a tilte or a plot" do
+  it "is unvalid if is missing a title or a plot" do
     content1 = Content.new plot: 'This a plot'
     content2 = Content.new title: "This is the title"
     expect(content1).not_to be_valid
