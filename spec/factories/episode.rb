@@ -5,7 +5,7 @@ FactoryGirl.define do
   factory :episode do
     plot
     title
-    season
+    association :season, :factory => :season, :title => "The walking dead"
     number
   end
 end

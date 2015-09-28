@@ -12,4 +12,21 @@ User.create email: 'test@example.com'
 
 (1..5).each { |e|  Content.create plot: "Rambo#{e} is a nice film", title: "Rambo#{e}", year: YEAR_OPTION.sample }
 (1..5).each { |e|  Movie.create plot: "Rocki#{e} is a nice film", title: "Rocki#{e}", year: YEAR_OPTION.sample }
-(1..5).each { |e|  Season.create plot: "Walking dead season #{e} is a nice serie", title: "Walking dead season#{e}", year: YEAR_OPTION.sample }
+(1..rand(10)).each do |e|
+  season = Season.create(
+    plot: "Walking dead season #{e} is a nice serie",
+    title: "Walking dead season#{e}",
+    year: YEAR_OPTION.sample
+  )
+  (1..rand(10)).each do |n|
+    episode = Episode.create(
+      plot: "Walking dead season #{e} episode #{n} is a nice episode",
+      title: "Walking dead season#{e} episode #{n}",
+      number: n,
+      season_id: season.id
+    )
+  end
+
+end
+
+

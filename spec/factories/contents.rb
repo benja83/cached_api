@@ -24,6 +24,12 @@ FactoryGirl.define do
     title
     type 'Season'
     year
+
+    trait :with_episode do
+      after :build do |season|
+        create_list :episode, 3, :season => season
+      end
+    end
   end
 
 end

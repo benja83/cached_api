@@ -5,7 +5,7 @@ class Content < ActiveRecord::Base
     message: "%{value} is not a valid type" }, :allow_nil => true
 
   def as_json(options={})
-    super(options.merge({:methods => :type}))
+    super(options.merge({:methods => [:type, :episodes]}))
   end
 
 end
