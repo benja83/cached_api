@@ -25,7 +25,8 @@ RSpec.describe Api::V1::SeasonsController, type: :controller do
       end
 
       it "return the episodes of each season" do
-        episodes = Hash.new("episodes" => Episode.all.as_json.each { |episode| episode.except!(:created_at, :updated_at)})
+        episodes = Hash.new("episodes" => @contents.last.episodes.as_json.each { |episode| episode.except!(:created_at, :updated_at)})
+
         expect(JSON.parse(response.body)['seasons'].first).to include(episodes)
       end
     end
