@@ -7,29 +7,26 @@ RSpec.describe Api::V1::SeasonsController, type: :controller do
       before do
         create_list(:content, 5)
         create_list(:movie, 5)
-        @contents = create_list(:season, 5)
+        @contents = create_list(:season, 5) << create(:season, :with_episode, year: 1900)
+
+        get :index
       end
 
       it 'returns the correct status' do
-        get :index
         expect(response.status).to eql(200)
       end
 
       it 'returns the data in the body' do
-        get :index
-        expect(format(response.body)).to match_array(format(@contents.to_json))
+        expect(response).to match_response_schema("seasons")
       end
 
       it "return the data in the order they are been created" do
-        @contents << create(:season, year: 1900)
-        get :index
-        expect(format(response.body).first).to eql(format(@contents.to_json).last)
+        expect(JSON.parse(response.body)['seasons'].first[:id]).to eq(@contents.last.as_json[:id])
       end
 
       it "return the episodes of each season" do
-        @contents << create(:season, :with_episode, year: 1900)
-        get :index
-        expect(format(response.body).first).to include("episodes" => format(Episode.all.to_a.to_json))
+        episodes = Hash.new("episodes" => Episode.all.as_json.each { |episode| episode.except!(:created_at, :updated_at)})
+        expect(JSON.parse(response.body)['seasons'].first).to include(episodes)
       end
     end
   end

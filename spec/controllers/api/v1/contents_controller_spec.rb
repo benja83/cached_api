@@ -14,11 +14,11 @@ RSpec.describe Api::V1::ContentsController, type: :controller do
       end
 
       it 'returns the data in the body' do
-        expect(format(response.body)).to match_array(format(@contents.to_json))
+        expect(response).to match_response_schema("contents")
       end
 
       it "return the data in the order they are been created" do
-        expect(format(response.body).first).to eql(format(@contents.to_json).last)
+        expect(JSON.parse(response.body)['contents'].first[:id]).to eq(@contents.last.as_json[:id])
       end
 
     end

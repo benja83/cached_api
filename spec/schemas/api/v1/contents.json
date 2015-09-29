@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": ["contents"],
+  "properties": {
+    "contents" : {
+      "type" : "array",
+      "required" : [
+        "id",
+        "plot",
+        "title",
+        "year" ,
+        "type"
+      ],
+      "properties" : {
+        "id": {"type": "integer"},
+        "plot": {"type": "text"},
+        "title": {"type": "string"},
+        "year" : {"type": "integer"},
+        "type": {"type": "string"}
+      }
+    }
+  }
+}

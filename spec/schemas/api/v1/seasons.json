@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": ["seasons"],
+  "properties": {
+    "seasons" : {
+      "type" : "array",
+      "required" : [
+        "id",
+        "plot",
+        "title",
+        "year" ,
+        "type",
+        "episodes"
+      ],
+      "properties" : {
+        "id":    {"type": "integer"},
+        "plot":  {"type": "text"},
+        "title": {"type": "string"},
+        "year" : {"type": "integer"},
+        "type":  {"type": "string"},
+        "episodes": {
+          "type" : "array",
+          "required" : [
+            "id",
+            "plot",
+            "title",
+            "number"
+          ],
+          "properties" : {
+            "id":     {"type": "integer"},
+            "plot":   {"type": "text"},
+            "title":  {"type": "string"},
+            "number": {"type": "integer"}
+          }
+        }
+      }
+    }
+  }
+}

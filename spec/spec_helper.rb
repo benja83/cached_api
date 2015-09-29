@@ -1,4 +1,4 @@
-require_relative 'support/factory_girl'
+Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -23,10 +23,7 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
-  def format(data)
-    JSON.parse(data).to_a
-  end
+end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
@@ -77,4 +74,3 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-end
