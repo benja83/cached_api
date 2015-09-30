@@ -27,7 +27,6 @@ User.create email: 'test@example.com'
       season_id: season.id
     )
   end
-
 end
 
 

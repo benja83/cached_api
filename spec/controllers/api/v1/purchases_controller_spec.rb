@@ -37,5 +37,24 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
         expect(response).to match_response_schema("purchaseError")
       end
     end
+    context "with a content present in your library" do
+      it "does not save the new purchase in the database" do
+        purchase_attributes = FactoryGirl.attributes_for(:purchase)
+        post :create, { purchase: purchase_attributes,
+                        content_id: @contents.first.id }
+        expect{
+          post :create, { purchase: purchase_attributes,
+                          content_id: @contents.first.id }
+        }.to change(Purchase,:count).by(0)
+      end
+      it "return an error response" do
+        purchase_attributes = FactoryGirl.attributes_for(:purchase)
+        post :create, { purchase: purchase_attributes,
+                        content_id: @contents.first.id }
+        post :create, { purchase: purchase_attributes,
+                        content_id: @contents.first.id }
+        expect(response).to match_response_schema("purchaseError")
+      end
+    end
   end
 end

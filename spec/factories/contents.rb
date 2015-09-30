@@ -12,6 +12,7 @@ FactoryGirl.define do
     title
     year
     price PRICE_OPTION.sample
+
   end
 
   factory :movie, parent: :content, class: 'Movie' do
@@ -33,5 +34,7 @@ FactoryGirl.define do
       end
     end
   end
+
+
 
 end
