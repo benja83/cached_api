@@ -1,4 +1,5 @@
 YEAR_OPTION = [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015]
+PRICE_OPTION = [0.99, 1.99, 2.99, 3.99, 4.99]
 
 FactoryGirl.define do
 
@@ -10,6 +11,7 @@ FactoryGirl.define do
     plot
     title
     year
+    price PRICE_OPTION.sample
   end
 
   factory :movie, parent: :content, class: 'Movie' do

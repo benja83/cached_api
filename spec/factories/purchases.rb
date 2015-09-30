@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :purchase do
-    price 1.67
     quality "HD"
+    price "1.99"
     association :user, :factory => :user
     association :content, :factory => :content,
       :title => "Content",

@@ -1,7 +1,12 @@
 class Api::V1::PurchaseService < ApplicationController
 
-  def createPurchase(params, purchase_params)
-    purchase = Purchase.new new_params(params, purchase_params)
+  def createPurchase(content_id, purchase_params)
+
+    content = Content.find(content_id)
+    purchase = Purchase.new :user_id => current_user.id,
+                            :content_id => content_id,
+                            :quality => purchase_params[:quality],
+                            :price => content.price
     if purchase.valid?
       purchase.save
       return purchase, Api::V1::PurchaseSerializer
@@ -9,7 +14,4 @@ class Api::V1::PurchaseService < ApplicationController
     return purchase, Api::V1::PurchaseErrorsSerializer
   end
 
-  def new_params(params, purchase_params)
-    purchase_params.merge(:user_id => current_user.id, :content_id =>params[:content_id])
-  end
 end

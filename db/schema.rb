@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929202736) do
+ActiveRecord::Schema.define(version: 20150930170205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20150929202736) do
   create_table "contents", force: :cascade do |t|
     t.text     "plot"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "type"
     t.integer  "year"
+    t.decimal  "price",      precision: 8, scale: 2
   end
 
   create_table "episodes", force: :cascade do |t|
