@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       end
       resources :movies, only: [:index]
       resources :seasons, only: [:index]
+      resources :library, only: [:index]
     end
   end
 end
