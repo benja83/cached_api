@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": ["purchase_errors"],
+  "properties": {
+    "purchase_errors" : {
+      "type" : "object",
+      "required" : [ "errors"],
+      "properties" : {
+        "errors": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

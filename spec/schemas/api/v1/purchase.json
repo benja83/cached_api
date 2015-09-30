@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": ["purchase"],
+  "properties": {
+    "purchase" : {
+      "type" : "object",
+      "required" : [
+        "id",
+        "price",
+        "quality",
+        "expiration_date" ,
+        "user_id",
+        "content_id"
+      ],
+      "properties" : {
+        "id": {"type": "integer"},
+        "price": {"type": "decimal"},
+        "quality": {"type": "string"},
+        "expiration_date" : {"type": "datetime"},
+        "user_id": {"type": "integer"},
+        "content_id": {"type": "integer"}
+      }
+    }
+  }
+}
