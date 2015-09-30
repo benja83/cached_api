@@ -9,14 +9,16 @@
         "plot",
         "title",
         "year" ,
-        "type"
+        "type",
+        "price"
       ],
       "properties" : {
         "id": {"type": "integer"},
         "plot": {"type": "text"},
         "title": {"type": "string"},
         "year" : {"type": "integer"},
-        "type": {"type": "string"}
+        "type": {"type": "string"},
+        "price": {"type": "decimal"}
       }
     }
   }

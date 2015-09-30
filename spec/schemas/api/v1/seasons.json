@@ -10,7 +10,8 @@
         "title",
         "year" ,
         "type",
-        "episodes"
+        "episodes",
+        "price"
       ],
       "properties" : {
         "id":    {"type": "integer"},
@@ -18,6 +19,7 @@
         "title": {"type": "string"},
         "year" : {"type": "integer"},
         "type":  {"type": "string"},
+        "price": {"type": "decimal"},
         "episodes": {
           "type" : "array",
           "required" : [
