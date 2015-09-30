@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
   end
 
   it "has to be unique email" do
-    create(:user)
-    user = build(:user)
-    expect(user).not_to be_valid
+    user1 = create(:user)
+    user2 = build(:user, :email => user1.email)
+    expect(user2).not_to be_valid
   end
 end

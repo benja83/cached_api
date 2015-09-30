@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Content, type: :model do
-  it "must have an plot, title and a type to be valid" do
+  it "must have a plot, title and a type to be valid" do
     content = build :content
     expect(content).to be_valid
   end

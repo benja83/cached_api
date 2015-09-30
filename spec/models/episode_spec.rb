@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Episode, type: :model do
-  it "must have an plot, title and a number to be valid" do
+  it "must have a plot, title and a number to be valid" do
     content = build :episode
     expect(content).to be_valid
   end

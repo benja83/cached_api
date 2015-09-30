@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20150929202736) do
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
 
   create_table "purchases", force: :cascade do |t|
-    t.integer  "price"
+    t.decimal  "price",           precision: 8, scale: 2
     t.string   "quality"
     t.datetime "expiration_date"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "user_id"
     t.integer  "content_id"
   end
