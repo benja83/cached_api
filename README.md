@@ -13,6 +13,18 @@ rake db:create
 rake db:setup
 ```
 
+##Requirement
+
+For caching, you need to have install Memcache
+
+in mac Os X
+
+```bash
+brew install memcached
+ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist
+```
+
 ##To check the features done in this repo
 
 ```bash
