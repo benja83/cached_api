@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
   def current_user
     @currenr_user = User.first
   end
+
+  def render_cached(data, serializer)
+    time_stamp = data.order('updated_at DESC').limit(1).first.updated_at.to_i.to_s
+    key = data.klass.to_s + time_stamp
+
+    Rails.cache.fetch key do
+      render json: data, each_serializer: serializer
+    end
+  end
 end

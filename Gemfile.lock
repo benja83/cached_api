@@ -51,6 +51,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    dalli (2.7.4)
     database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
@@ -170,6 +171,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   byebug
+  dalli
   database_cleaner (~> 1.5.0)
   factory_girl_rails (~> 4.0)
   jbuilder (~> 2.0)
