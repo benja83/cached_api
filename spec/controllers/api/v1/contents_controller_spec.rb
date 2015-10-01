@@ -17,7 +17,7 @@ RSpec.describe Api::V1::ContentsController, type: :controller do
         expect(response).to match_response_schema('contents')
       end
 
-      it 'returns the contents in the order they have been publish' do
+      it 'returns the contents in the order they have been published' do
         expect(JSON.parse(response.body)['contents'].first[:id]).to eq(@contents.last.as_json[:id])
       end
 

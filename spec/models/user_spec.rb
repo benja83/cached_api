@@ -6,17 +6,17 @@ RSpec.describe User, type: :model do
     expect(user).to be_valid
   end
 
-  it "is unvalid if it don't have email" do
+  it "is not valid if it don't have email" do
     user = build :user, email: nil
     expect(user).not_to be_valid
   end
 
-  it "is unvalid if it have un wrong email" do
+  it "is not valid if it have un wrong email" do
     user = build :user, email: 'test@example'
     expect(user).not_to be_valid
   end
 
-  it "has to be unique email" do
+  it "must have unique email" do
     user1 = create(:user)
     user2 = build(:user, :email => user1.email)
     expect(user2).not_to be_valid

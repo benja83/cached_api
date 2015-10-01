@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::MoviesController, type: :controller do
   context 'index' do
-    describe 'using movies endpoint' do
+    describe 'using api/v1/movies' do
 
       before do
         create_list(:content,5)
@@ -16,11 +16,11 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
         expect(response.status).to eql(200)
       end
 
-      it 'returns the data in the body' do
+      it 'returns the movies in the body in the right schema' do
         expect(response).to match_response_schema('movies')
       end
 
-      it 'return the data in the order they are been created' do
+      it 'return the movies in the order they have been published' do
        expect(JSON.parse(response.body)['movies'].first[:id]).to eq(@contents.last.as_json[:id])
       end
     end

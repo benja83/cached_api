@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::SeasonsController, type: :controller do
   context 'index' do
-    describe 'using seasons endpoint' do
+    describe 'using api/v1/seasons endpoint' do
 
       before do
         create_list(:content, 5)
@@ -16,11 +16,11 @@ RSpec.describe Api::V1::SeasonsController, type: :controller do
         expect(response.status).to eql(200)
       end
 
-      it 'returns the data in the body' do
+      it 'returns the seasons in the body in the right schema' do
         expect(response).to match_response_schema('seasons')
       end
 
-      it 'return the data in the order they are been created' do
+      it 'return the seasons in the order they have been pusblished' do
         expect(JSON.parse(response.body)['seasons'].first[:id]).to eq(@contents.last.as_json[:id])
       end
 

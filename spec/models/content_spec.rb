@@ -6,7 +6,7 @@ RSpec.describe Content, type: :model do
     expect(content).to be_valid
   end
 
-  it "is unvalid if is missing a title or a plot" do
+  it "is not valid if is missing a title or a plot" do
     content1 = build :content, price: nil
     content2 = build :content, title: nil
     content3 = build :content, plot: nil
