@@ -7,10 +7,12 @@ RSpec.describe Episode, type: :model do
   end
 
   it "is unvalid if is missing a title or a plot" do
-    content1 = Episode.new plot: 'This a plot'
-    content2 = Episode.new title: "This is the title"
+    content1 = build :episode, plot: nil
+    content2 = build :episode, title: nil
+    content3 = build :episode, number: nil
     expect(content1).not_to be_valid
     expect(content2).not_to be_valid
+    expect(content3).not_to be_valid
   end
 
   it "must belongs to a season" do

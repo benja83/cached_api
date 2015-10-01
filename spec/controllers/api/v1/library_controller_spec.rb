@@ -3,7 +3,7 @@ require 'date'
 
 RSpec.describe Api::V1::LibraryController, type: :controller do
   context 'index' do
-    describe "using library endpoint" do
+    describe 'using library endpoint' do
       before do
         user = create(:user)
         content = create_list(:content, 5)
@@ -24,17 +24,17 @@ RSpec.describe Api::V1::LibraryController, type: :controller do
       end
 
       it 'returns the data in the body' do
-        expect(response).to match_response_schema("library")
+        expect(response).to match_response_schema('library')
       end
 
-      it "return the data in the order of the purchase will expire" do
-        expect(JSON.parse(response.body)['library'].first['id']).to eq(@purchase.as_json.last['id'])
+      it 'return the data in the order of the purchase will expire' do
+        expect(JSON.parse(response.body)['library'].first[:id]).to eq(@purchase.as_json.last[:id])
       end
 
-      it "return the data without expire content" do
+      it 'return the data without expire content' do
         parsed_response = JSON.parse(response.body)['library']
         ids=[]
-        parsed_response.each { |e| ids <<  e["id"] }
+        parsed_response.each { |e| ids <<  e['id'] }
         expect(ids).to match_array(@ids)
       end
     end

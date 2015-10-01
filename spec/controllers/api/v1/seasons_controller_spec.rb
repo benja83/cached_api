@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::SeasonsController, type: :controller do
   context 'index' do
-    describe "using season endpoint" do
+    describe 'using seasons endpoint' do
 
       before do
         create_list(:content, 5)
@@ -17,15 +17,15 @@ RSpec.describe Api::V1::SeasonsController, type: :controller do
       end
 
       it 'returns the data in the body' do
-        expect(response).to match_response_schema("seasons")
+        expect(response).to match_response_schema('seasons')
       end
 
-      it "return the data in the order they are been created" do
+      it 'return the data in the order they are been created' do
         expect(JSON.parse(response.body)['seasons'].first[:id]).to eq(@contents.last.as_json[:id])
       end
 
-      it "return the episodes of each season" do
-        episodes = Hash.new("episodes" => @contents.last.episodes.as_json.each { |episode| episode.except!(:created_at, :updated_at)})
+      it 'return the episodes of each season' do
+        episodes = Hash.new('episodes' => @contents.last.episodes.as_json.each { |episode| episode.except!(:created_at, :updated_at)})
 
         expect(JSON.parse(response.body)['seasons'].first).to include(episodes)
       end
