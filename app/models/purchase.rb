@@ -16,13 +16,13 @@ class Purchase < ActiveRecord::Base
 
   private
 
-    def set_expiration_date
-      self.expiration_date = DateTime.now + 2.days
-    end
+  def set_expiration_date
+    self.expiration_date = DateTime.now + 2.days
+  end
 
-    def not_duplicated_content_in_library
-      message = "This content is already present in your library"
-      library_ids =  Api::V1::LibraryService.new.get_current_user_library.pluck(:content_id)
-      errors.add(:content_id, message) if library_ids.include?(content_id)
-    end
+  def not_duplicated_content_in_library
+    message = "This content is already present in your library"
+    library_ids =  Api::V1::LibraryService.new.get_current_user_library.pluck(:content_id)
+    errors.add(:content_id, message) if library_ids.include?(content_id)
+  end
 end

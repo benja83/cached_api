@@ -1,3 +1,2 @@
 class Movie < Content
-
 end
