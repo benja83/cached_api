@@ -6,7 +6,7 @@ RSpec.describe Purchase, type: :model do
     expect(purchase).to be_valid
   end
 
-  it "is unvalid if is missing a price or a quality" do
+  it "is not valid if is missing a price or a quality" do
     purchase1 = build :purchase, price: nil
     purchase2 = build :purchase, quality: nil
     expect(purchase1).not_to be_valid
