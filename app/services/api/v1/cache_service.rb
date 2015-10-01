@@ -1,12 +1,19 @@
 class Api::V1::CacheService
-  def render_cached(data, serializer)
-    key = data.klass.to_s + DateTime.now.to_s
 
-    serialized_data = serializer.new(data)
-    puts serialized_data
+  def initialize(serializer)
+    @serializer = serializer
+  end
+  def cache(data)
+    time_stamp = data.klass.order('updated_at DESC').limit(1).first.updated_at
+
+    key = data.klass.to_s + time_stamp.to_i.to_s
 
     Rails.cache.fetch key do
-      return Proc.new { render json: serialized_data }
+      serialized(data)
     end
+  end
+
+  def serialized(data)
+    @serializer.new(data)
   end
 end
