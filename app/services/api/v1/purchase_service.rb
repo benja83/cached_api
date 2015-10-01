@@ -14,8 +14,4 @@ class Api::V1::PurchaseService < ApplicationController
     return purchase, Api::V1::PurchaseErrorsSerializer
   end
 
-  def current_user_library
-    current_user.purchases.library
-  end
-
 end
