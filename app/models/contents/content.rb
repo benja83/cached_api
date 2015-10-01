@@ -1,4 +1,6 @@
 class Content < ActiveRecord::Base
+  alias :read_attribute_for_serialization :send
+
   TYPES = %w( Movie Season )
 
   has_many :purchases
