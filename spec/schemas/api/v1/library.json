@@ -8,13 +8,15 @@
         "id",
         "quality",
         "expiration_date",
-        "content_id"
+        "content_id",
+        "time_to_expire"
       ],
       "properties" : {
         "id": {"type": "integer"},
         "quality": {"type": "string"},
         "expiration_date" : {"type": "datetime"},
-        "content_id": {"type": "integer"}
+        "content_id": {"type": "integer"},
+        "time_to_expire": {"type": "string"}
       }
     }
   }
