@@ -1,10 +1,10 @@
-Wuaki
-=====
+Cached API
+===========
 
 ##Install that repository
 
 ```bash
-git clone git@bitbucket.org:benja83/wuaki.git
+git clone git@github.com:benja83/cached_api.git
 
 bundle install
 
